@@ -43,7 +43,7 @@ jobs:
       # Download Installer
       - name: Download macOS Installer
         run: |
-          sudo /System/Library/PrivateFrameworks/Seeding.framework/Versions/A/Resources/seedutil enroll PublicSeed
+          true
           softwareupdate --list-full-installers
           softwareupdate --fetch-full-installer --full-installer-version ${{ env.installer_version }}
 
@@ -85,3 +85,4 @@ jobs:
         with:
           name: macOS ${{ env.installer_name }}
           path: "~/Desktop/${{ env.installer_name }}.${{ github.event.inputs.file }}"
+
